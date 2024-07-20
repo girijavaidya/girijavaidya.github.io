@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <link rel="stylesheet" href="location.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    /* navbar */
+    /* .rope1,
+    .rope2 {
+      position: absolute;
+      top: 0;
+      z-index: 100000;
+      background: rgb(212, 19, 19);
+      height: 2em;
+      width: 10px;
+      z-index: 100;
+    }
+
+    .rope1 {
+      left: 12em;
+      position: fixed;
+      border: 5px double rgb(119, 9, 9);
+    }
+
+    .rope2 {
+      right: 12em;
+      position: fixed;
+      border: 5px double rgb(119, 9, 9);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(15deg, rgb(241, 65, 65), 80%, #630707);
+      position: relative;
+      height: 90px;
+      width: 95vw;
+      border-radius: 60px;
+      z-index: 100;
+      top: 2em;
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 0 auto;
+      padding: 30px 30px;
+      border: 5px double rgb(119, 9, 9);
+    } */
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      margin: auto;
+    }
+
+    nav ul li a {
+      align-items: center;
+      text-decoration: none;
+      color: rgb(247, 242, 242);
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: rgb(0, 0, 0);
+    }
+
+    .menu-icon i {
+      display: none;
+      color: white;
+      font-size: 25px;
+    }
+
+    @media (max-width:600px) {
+      nav ul #vertical-line {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        text-align: center;
+        background: wheat;
+        gap: 0;
+      }
+    }
+
+    .row-loc {
+      width: 85vw;
+      margin: auto;
+    }
+
+    .head-para {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .head-para h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .head-para p {
+      font-size: 1rem;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    .select-btn {
+      padding: 10px 20px;
+      background-color: #f8f8f8;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 300px;
+    }
+
+    .content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      width: 300px;
+      max-height: 200px;
+      overflow-y: auto;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .content.show {
+      display: block;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 5px;
+      border: none;
+      outline: none;
+    }
+
+    .option {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .option li {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .option li:hover {
+      background-color: #f1f1f1;
+    }
+
+    .card-container {
+      margin: 2em 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .card-location {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      margin: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card-location .card-header1 {
+      margin-bottom: 15px;
+    }
+
+    .card-location .card-point ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .card-location .card-point ul li {
+      margin-bottom: 10px;
+    }
+
+    .card-location .btn {
+      background-color: #f8f8f8;
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #000;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    .card-location .btn:hover {
+      background-color: #e2e2e2;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navbar -->
+  <div class="rope1"></div>
+  <div class="rope2"></div>
+  <nav>
+    <img src="Images/loc-logo-removebg-preview.png" width="100">
+    <ul>
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="frenchise.html" >Franchise</a></li>
+      <li><a href="aboutUs.html">About</a></li>
+      <li><a href="store.html" >Store Locator</a></li>
+      
+    </ul>
+  </nav>
+  <!-- navbar end -->
+
+  <div class="banner-img" id="slide-img1">
+    <img src="Images/store-img.png" width="100%">
+  </div>
+
+  <div class="bg-img" style="display: flex; justify-content: center; align-items: center; height: 21em;">
+    <img src="Images/bg-img-store.jpg" style="width: 21em; opacity: .6;">
+  </div>
+
+  <!-- card start -->
+  <div class="head-para">
+    <div class="head">
+      <h1>FIND OUR CAFE LOCATION</h1>
+    </div>
+    <div class="para">
+      <p>
+        Looking for a place to have the best quality Chai and traditional Indian snacks? Just specify the state and city
+        names, and you’ll get all the information about all the Tea Posts in that region – right here right now!
+      </p>
+    </div>
+  </div>
+  <!-- end card -->
+
+  <!-- search bar start -->
+  <div class="wrapper" style="margin: auto;list-style: none;">
+    <div class="select-btn">
+      <span>Select Area Location</span>
+      <i class="uil uil-angle-down"></i>
+    </div>
+    <div class="content">
+      <div class="search">
+        <i class="uil uil-search"></i>
+        <input type="text" placeholder="Search Location">
+      </div>
+      <ul class="option">
+        <!-- Options will be added dynamically -->
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- card container -->
+  <div class="card-container" style="margin: 10em 0;">
+    <div class="row-loc">
+      <div class="card-location" data-location="Kotwal Nagar">
+        <div class="card-header1">
+           <img src="./Images/loc-logo-removebg-preview.png" alt="" width="8">
+           <hr style="width: 13%; height: 2px; background: black; margin: auto;">
+          </div>
+          <div class="card-point">
+          <h4>Kotwal Nagar</h4>
+          <ul>
+            <li><i class="uil uil-map-marker"></i><a href="#">Address: Chaitnya Nagar Chowk</a></li>
+            <li><i class="uil uil-phone"></i><a href="#">Phone: 1234567890</a></li>
+            <li><i class="uil uil-envelope"></i><a href="#">Email: kotwalnagar@gmail.com</a></li>
+          </ul>
+        </div>
+        <div><a href="https://www.google.com/maps" class="btn">View Location</a></div>
+      </div>
+
+      <div class="card-location" data-location="Kalpana Nagar">
+        <div class="card-header1">
+           <img src="./Images/loc-logo-removebg-preview.png" alt="" width="8">
+           <hr style="width: 13%; height: 2px; background: black; margin: auto;">
+          </div>
+          <h4>Kalpana Nagar</h4>
+          <div class="card-point">
+          <ul>
+            <li><i class="uil uil-map-marker"></i><a href="#">Address: Chaitnya Nagar Chowk</a></li>
+            <li><i class="uil uil-phone"></i><a href="#">Phone: 1234567890</a></li>
+            <li><i class="uil uil-envelope"></i><a href="#">Email: kalpananagar@gmail.com</a></li>
+          </ul>
+        </div>
+        <div><a href="https://www.google.com/maps" class="btn">View Location</a></div>
+      </div>
+
+      <div class="card-location" data-location="Mahal">
+        <div class="card-header1">
+           <img src="./Images/loc-logo-removebg-preview.png" alt="" width="8">
+           <hr style="width: 13%; height: 2px; background: black; margin: auto;">
+          </div>
+          <h4>Mahal</h4>
+        <div class="card-point">
+          <ul>
+            <li><i class="uil uil-map-marker"></i><a href="#">Address: Chaitnya Nagar Chowk</a></li>
+            <li><i class="uil uil-phone"></i><a href="#">Phone: 1234567890</a></li>
+            <li><i class="uil uil-envelope"></i><a href="#">Email: mahal@gmail.com</a></li>
+          </ul>
+        </div>
+        <div><a href="https://www.google.com/maps" class="btn">View Location</a></div>
+      </div>
+
+      <div class="card-location" data-location="Katol Road">
+        <div class="card-header1">
+           <img src="./Images/loc-logo-removebg-preview.png" alt="" width="8">
+           <hr style="width: 13%; height: 2px; background: black; margin: auto;">
+          </div>
+          <h4>Katol Road</h4>
+        <div class="card-point">
+          <ul>
+            <li><i class="uil uil-map-marker"></i><a href="#">Address: Chaitnya Nagar Chowk</a></li>
+            <li><i class="uil uil-phone"></i><a href="#">Phone: 1234567890</a></li>
+            <li><i class="uil uil-envelope"></i><a href="#">Email: katolroad@gmail.com</a></li>
+          </ul>
+        </div>
+        <div><a href="https://www.google.com/maps" class="btn">View Location</a></div>
+      </div>
+
+      <div class="card-location" data-location="Manish Nagar">
+        <div class="card-header1">
+          <img src="./Images/loc-logo-removebg-preview.png" alt="" width="8">
+          <hr style="width: 13%; height: 2px; background: black; margin: auto;">
+        </div>
+        <h4>Manish Nagar</h4>
+        <div class="card-point">
+          <ul>
+            <li><i class="uil uil-map-marker"></i><a href="#">Address: Chaitnya Nagar Chowk</a></li>
+            <li><i class="uil uil-phone"></i><a href="#">Phone: 1234567890</a></li>
+            <li><i class="uil uil-envelope"></i><a href="#">Email: manishnagar@gmail.com</a></li>
+          </ul>
+        </div>
+        <div><a href="https://www.google.com/maps" class="btn">View Location</a></div>
+      </div>
+
+      <div class="card-location" data-location="Nandanvan">
+        <div class="card-header1">
+          <img src="./Images/loc-logo-removebg-preview.png" alt="" width="8">
+          <hr style="width: 13%; height: 2px; background: black; margin: auto;">
+        </div>
+        <h4>Nandanvan</h4>
+        <div class="card-point">
+          <ul>
+            <li><i class="uil uil-map-marker"></i><a href="#">Address: Chaitnya Nagar Chowk</a></li>
+            <li><i class="uil uil-phone"></i><a href="#">Phone: 1234567890</a></li>
+            <li><i class="uil uil-envelope"></i><a href="#">Email: nandanvan@gmail.com</a></li>
+          </ul>
+        </div>
+        <div><a href="https://www.google.com/maps" class="btn">View Location</a></div>
+      </div>
+    </div>
+  </div>
+  <!-- card container end -->
+
+
+  <!-- footer start -->
+  <footer>
+    <div class="img-logo" style="margin: auto;">
+      <img class="footer-image" src="Images/loc-logo-removebg-preview.png" alt="Sample Image" width="30%">
+
+    </div>
+    <div class="container-footer">
+      <div class="sec aboutUs">
+        <h2>Also Avaliable On</h2>
+        <img src="Images/zomato-swigg-logo.png">
+        <ul class="sci">
+          <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+
+        </ul>
+      </div>
+      <div class="sec quicklink">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Franchise</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Our Cafe</a></li>
+          <li><a href="#">Store Location</a></li>
+        </ul>
+
+
+      </div>
+      <div class="sec quicklink">
+        <h2>Our Policies</h2>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Term & Conditions</a></li>
+          <li><a href="#">Refund & Cancellation Policy</a></li>
+
+        </ul>
+
+
+      </div>
+      <div class="sec contact">
+        <h2>Contact Us</h2>
+        <ul class="info">
+          <li>
+            <span><i class="fa-solid fa-map-pin"></i></span>
+            <span>
+              Gahukar Complex, Plot No 09<br>
+              Opposite to Arena Gym<br>Ayodhya nagar Nagpur
+            </span>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-phone"></i></span>
+            <p><a href="tel:+ 07498176954">+ 749 817 6954</a><br>
+              <a href="tel:+ 07498176954">+ 749 817 6954</a>
+            </p>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-paper-plane"></i></span>
+            <p><a href="mailto:shubhamdabre@lifeofchai.in ">shubhamdabre@lifeofchai.in</a><br>
+
+            </p>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+    <a class="gotopbtn" href="#"><i class="fa-solid fa-arrow-up"></i></a>
+  </footer>
+
+  <div class="copyrightText">
+    <p>© 2024 Loc of life. All Rights Reserved. Design & Developed By Aone Seo </p>
+  </div>
+  <!-- footer end -->
+
+  <script>
+    const selectBtn = document.querySelector(".select-btn"),
+      searchInput = document.querySelector(".search input"),
+      content = document.querySelector(".wrapper .content"),
+      optionsContainer = document.querySelector(".option"),
+      cards = document.querySelectorAll(".card-location");
+
+    // Add locations to the dropdown
+    const locations = [...new Set([...cards].map(card => card.dataset.location))];
+
+    locations.forEach(location => {
+      const li = document.createElement("li");
+      li.textContent = location;
+      li.dataset.location = location;
+      optionsContainer.appendChild(li);
+    });
+
+    selectBtn.addEventListener("click", () => {
+      content.classList.toggle("show");
+    });
+
+    searchInput.addEventListener("keyup", () => {
+      let filter = searchInput.value.toLowerCase();
+      document.querySelectorAll(".option li").forEach(option => {
+        let text = option.textContent.toLowerCase();
+        option.style.display = text.includes(filter) ? "" : "none";
+      });
+    });
+
+    document.querySelectorAll(".option li").forEach(option => {
+      option.addEventListener("click", () => {
+        selectBtn.querySelector("span").textContent = option.textContent;
+        content.classList.remove("show");
+        const selectedLocation = option.dataset.location;
+        cards.forEach(card => {
+          card.style.display = card.dataset.location === selectedLocation ? "" : "none";
+        });
+      });
+    });
+
+    // Reset cards display when clicking outside the dropdown
+    document.addEventListener("click", (event) => {
+      if (!selectBtn.contains(event.target) && !content.contains(event.target)) {
+        content.classList.remove("show");
+      }
+    });
+  </script>
+</body>
+
+</html>

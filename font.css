@@ -1,0 +1,17 @@
+/* Define custom font MyCustomFont */
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('fonts/MyCustomFont.woff2') format('woff2'),
+         url('fonts/MyCustomFont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Define another custom font AnotherCustomFont */
+@font-face {
+    font-family: 'AnotherCustomFont';
+    src: url('fonts/AnotherCustomFont.woff2') format('woff2'),
+         url('fonts/AnotherCustomFont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

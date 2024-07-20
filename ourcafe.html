@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="greatcafe.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Our Cafe</title>
+</head>
+<body>
+  <div class="rope1"></div>
+  <div class="rope2"></div>
+  <nav>
+    <img src="Images/loc-logo-removebg-preview.png" width="50px">
+    <ul>
+      <li><a href="aboutUs.html">About Us</a></li>
+      <li><a href="ourcafe.html">Our Cafe</a></li>
+      <li><a href="frenchise.html">Franchise</a></li>
+      <li><a href="store.html">Store Locator</a></li>
+      <li><a href="">Contact Us</a></li>
+    </ul>
+  </nav>
+  <div class="banner-img" id="slide-img1">
+    <img src="Images/store-img.png" width="100%">
+  </div>
+  <div class="wrapper">
+    <div class="left-col">
+      <div class="content-text">
+        <h1>Add Cafe to your living space</h1>
+        <p>
+          Coffee, croissants, and conversation – the simple pleasures in life.
+        </p>
+        <button type="button">LEARN MORE</button>
+      </div>
+    </div>
+    <div class="right-col">
+      <div class="slider">
+        <img src="Images/loc-img1.jpeg" alt="" id="slider">
+      </div>
+      <div class="slider-content">
+        <h2>Where can I find ideas for a small cafe?</h2>
+        <hr>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, corrupti adipisci perspiciatis quo ad qui nobis sequi expedita ipsam rerum culpa, quae quibusdam consequatur nesciunt nihil? Consectetur sapiente nulla a.</p>
+        <div class="controller">
+          <img src="Images/back.png" id="BackBtn">
+          <div class="vertical-line"></div>
+          <img src="Images/next.png" id="NextBtn">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var slider = document.getElementById("slider");
+    var BackBtn = document.getElementById("BackBtn");
+    var NextBtn = document.getElementById("NextBtn");
+
+    var slideimages = [
+        "Images/2coffe-loc.jpg",
+        "Images/main-pge-img.jpeg",
+        "Images/2coffe-loc.jpg"
+    ];
+
+    let i = 0;
+
+    NextBtn.onclick = function() {
+        if (i < slideimages.length - 1) {
+            i++;
+        } else {
+            i = 0; // loop back to the first image
+        }
+        slider.src = slideimages[i];
+    };
+
+    BackBtn.onclick = function() {
+        if (i > 0) {
+            i--;
+        } else {
+            i = slideimages.length - 1; 
+        }
+        slider.src = slideimages[i];
+    };
+  </script>
+  
+</body>
+</html>
