@@ -36,7 +36,7 @@
 
 .content-sec {
     max-width: 600px;
-
+    margin-top: 10%;
     position: relative;
   top:1em;
   left: 5em;
@@ -116,10 +116,10 @@
 }
 
 .feature-img {
-    width: 550px;
+    width: 400px;
     position: absolute;
     bottom: -30%;
-    right: 10%;
+    right: 5%;
 }
 
 .anim {
@@ -705,13 +705,14 @@ bottom:  3em;
 /* services-card start */
 .services-sec
 {
-  /* color: ; */
+ margin-left: -10%;
   display: flex;
   align-items: center;
   height: 100vh;
 }
 .container-card
-{position: relative;
+{
+  position: relative;
   bottom: 10em;
   margin: 0 auto;
 }
@@ -719,12 +720,12 @@ bottom:  3em;
 {
   color: rgb(170, 8, 8);
   font-size: 50px;
-   font-weight: 500;
+   font-weight: 400;
    letter-spacing: 1px;
 }
 .container-card > h1, .container-card > p
 {
- 
+  font-size: 20px;
   text-align: center;
 }
 .service-card
@@ -790,39 +791,17 @@ bottom:  3em;
    top: 6em;
   filter: drop-shadow(4px 6px 8px #aa1b1bb6);
 }
-
+.team-img
+{
+ 
+}
 .Images {
   position: relative;
   width: 100%;
   margin-top: -30%;
 }
 
-/* .dishes-sec
-{
-  width: 150%;
-  height: 100vh;
-  background-color: #ddd;
-  
-  border-radius: 150px;
-  margin-left: -50%;
-}
-.team-img
-{
-  display: flex;
-  width: 90%;
-}
-.single-team
-{
-  align-items: center;
-  justify-content: center;
-  
-  
- 
-  width: 360px;
-  height: 400%;
-  padding: 10px;
-} */
-/* end dishes section */
+
 .Images {
   position: relative;
   width: 100%;
@@ -887,8 +866,8 @@ bottom:  3em;
 }
 .services > .tittle
 {
-  font-weight: 900;
-  font-size: 1.2rem;
+  font-weight: 800;
+  font-size: 1.0rem;
   color: #000;
   line-height: 1.55rem;
   margin-bottom: 1rem;
@@ -1871,7 +1850,7 @@ footer
   position: relative;
   width: 100%;
   height: auto;
-  padding: 50px 100px;
+  padding: 30px 100px;
   background: black;
   font-family: 'Frank Ruhl Libre', sans-serif;;
 }
@@ -1880,7 +1859,7 @@ footer .container-footer
   width: 100%;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr ;
-  grid-gap: 10px;
+  grid-gap: 20px;
 }
 footer .container-footer .sec h2
 {
@@ -2040,6 +2019,8 @@ footer .container-footer .sec  img
   height: 100%;
   margin: 10em 0;
 }
+.wrapper-data .left-col
+
 .wrapper-data .left-col, .right-col
 
 {
@@ -2047,7 +2028,8 @@ footer .container-footer .sec  img
 }
 .wrapper-data .content-text
 {
-  max-width: 500px;
+  max-width: 400px;
+  bottom: 20%;
   position: relative;
   float: right;
 }

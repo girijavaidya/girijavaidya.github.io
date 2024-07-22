@@ -153,14 +153,16 @@
 .text-header
 {
   position: absolute;
- display: flex;
-  left: 50%; 
+  display: flex;
+  left: 50%;
+  top: 20%;
+  font-size: 30px !important;
   transform: translate(-50%, -50%);
-  
   align-items: center;
   justify-content: center;
   margin-top: 15%;
-  color: white;
+  background: transparent;
+  color: white; /* Remove the first color: transparent; */
 }
 .text-header ul 
 {
