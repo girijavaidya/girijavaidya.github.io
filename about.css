@@ -404,13 +404,13 @@ gap: 3em;
 
 .headline span{
   font-weight: 500;
-  color: rgb(218, 68, 68);
+  color: rgb(218, 183, 68);
   font-size: 60px;
 }
 .headline p
 {
   font-size: 25px;
-  color: #f7bc4f;
+  color: red;
 }
 .headline h2{
 font-size: 30px;
@@ -595,7 +595,7 @@ margin: 0 12.5px;
 
 .states .state-container{
   display: grid;
-  gap: 60px;
+  gap: 50px;
   margin-bottom: 5%;
 }
 
@@ -612,7 +612,7 @@ margin: 0 12.5px;
 
 .state-title{
   margin-bottom: 20px;
-  font-size: 45px;
+  font-size: 40px;
 }
 
 .state-list{
@@ -665,8 +665,9 @@ font-size: 20px;
 
 .state-banner img{
   padding: 20px;
+  width: 100%;
   border-radius: 10px;
-  margin-left: 10%;
+  margin-left: 1%;
 }
 
 /* .state-banner img:hover{
